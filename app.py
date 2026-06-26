@@ -23,10 +23,10 @@ Built with:
 - Streamlit 🌐
 """)
 
-# Load trained model
+
 model = joblib.load("model.pkl")
 
-# Study hours slider
+
 hours = st.slider(
     "📚 Study Hours",
     0,
@@ -34,27 +34,27 @@ hours = st.slider(
     5
 )
 
-# Predict button
+
 if st.button("🚀 Predict Marks"):
 
-    # Create dataframe
+    
     data = pd.DataFrame(
         [[hours]],
         columns=["hours"]
     )
 
-    # Predict
+    
     prediction = model.predict(data)
 
-    # Show result
+    
     st.success(
         f"🎯 Expected Marks: {prediction[0]:.2f}"
     )
 
-    # Balloons
+    
     st.balloons()
 
-    # Graph
+    
     fig, ax = plt.subplots(figsize=(8, 5))
 
     hours_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
