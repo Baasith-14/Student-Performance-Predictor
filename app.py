@@ -18,11 +18,19 @@ st.markdown("""
 Enter your study hours and our Machine Learning model
 will estimate your expected marks instantly.
 
-Built with:
-- Python 🐍
-- Scikit-Learn 🤖
-- Streamlit 🌐
+
 """)
+
+col1,col2,col3=st.columns(3)
+
+with col1:
+    st.metric("Model","Linear Regression")
+
+with col2:
+    st.metric("Framework","Streamlit")
+
+with col3:
+    st.metric("Language","Python")
 
 
 model = joblib.load("model.pkl")
@@ -45,7 +53,8 @@ if st.button("🚀 Predict Marks"):
     )
 
     
-    prediction = model.predict(data)
+    with st.spinner("🤖 AI is predicting your marks..."):
+    prediction=model.predict(data)
 
     
     st.success(
