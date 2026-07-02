@@ -10,6 +10,7 @@ st.set_page_config(
 )
 
 st.title("🎓 Student Performance Predictor")
+st.caption("Predict your expected marks based on study hours using AI.")        
 
 st.markdown("""
 ### 🤖 AI Powered Student Performance Predictor
